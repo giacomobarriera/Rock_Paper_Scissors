@@ -36,13 +36,6 @@ IF valore è Scissors
 function getHumanChoice() {
     let answer= prompt("rock, paper or scissors");
         return answer.toLowerCase();
-    /*if (answer == "rock" 
-        || answer == "paper" 
-        || answer == "scissors") {
-        console.log(answer)
-    } else {
-        console.log(answer.toLowerCase());
-    }*/
 }
 
 let humanScore = 0;
@@ -72,15 +65,11 @@ function playRound (humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "rock") 
     ) {
-        console.log("Hai vinto! " /*+ humanChoice + " batte " + computerChoice*/)
-    } else if (
-        (humanChoice === "rock" && computerChoice === "rock") ||
-        (humanChoice === "scissors" && computerChoice === "scissors") ||
-        (humanChoice === "paper" && computerChoice === "paper")
-     ) {
-        console.log("Pari! Riprova! " /*+ humanChoice + " è uguale a " + computerChoice*/)
+        console.log("Hai vinto! " + humanChoice + " batte " + computerChoice)
+    } else if (humanChoice === computerChoice) {
+        console.log("Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice)
     } else {
-        console.log("Hai perso! " /*+ computerChoice + " batte " + humanChoice*/)
+        console.log("Hai perso! " + computerChoice + " batte " + humanChoice)
     } 
 }
 

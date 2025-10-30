@@ -14,8 +14,17 @@ ELSE numero è gra 7 e 9
     allora chiama scissors*/
 
 function getComputerChoice() {
-    let n=  Math.random();
-console.log(n);
+    let n= (Math.random() * 10);
+            console.log(n);
+
+    if (n > 0 && (n < 3 || n===3)) {
+        console.log("Rock");
+    } else if ((n > 4 || n===4) && (n < 6 || n===6 )) {
+        console.log("Paper");
+    } else {
+        console.log("Scissors");
+    }
+        
 }
 
 getComputerChoice();

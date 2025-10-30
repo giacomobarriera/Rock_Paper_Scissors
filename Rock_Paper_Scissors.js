@@ -28,3 +28,20 @@ function getComputerChoice() {
 }
 
 getComputerChoice();
+
+/*Scelta UTENTE
+Chiedere all'utente di scegliere un valore
+IF valore è Rock
+    allora mostra Rock
+IF valore è Paper
+    allora mostra Paper
+IF valore è Scissors
+    allora mostra Scissors
+*/
+
+function getHumanChoice() {
+    let answer= prompt("Rock, Paper or Scissors");
+            console.log(answer);
+}
+
+getHumanChoice();

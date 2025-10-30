@@ -65,17 +65,25 @@ function playRound (humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "rock") 
     ) {
-        console.log("Hai vinto! " + humanChoice + " batte " + computerChoice)
+        console.log("Hai vinto! " + humanChoice + " batte " + computerChoice);
+        return humanScore++;
     } else if (humanChoice === computerChoice) {
         console.log("Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice)
     } else {
-        console.log("Hai perso! " + computerChoice + " batte " + humanChoice)
+        console.log("Hai perso! " + computerChoice + " batte " + humanChoice);
+        return computerScore++;
     } 
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
+
 console.log("Computer sceglie:", computerSelection);
 console.log("Utente sceglie:", humanSelection);
+
 playRound(humanSelection, computerSelection);
+
+console.log("Punteggio Computer:", computerScore);
+console.log("Punteggio Utente:", humanScore);
+

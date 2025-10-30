@@ -41,7 +41,12 @@ IF valore è Scissors
 
 function getHumanChoice() {
     let answer= prompt("Rock, Paper or Scissors");
-            console.log(answer);
+        
+    if (answer == "Rock" || answer == "Paper" || answer == "Scissors") {
+        console.log(answer)
+    } else {
+        console.log("Try again");
+    }
 }
 
 getHumanChoice();

@@ -47,7 +47,7 @@ function getHumanChoice() {
         || answer == "scissors") {
         console.log(answer)
     } else {
-        console.log("Try again");
+        console.log(answer.toLowerCase());
     }
 }
 
@@ -77,5 +77,8 @@ ELSE messaggio "Hai Perso! "computerChoice" batte "a"
 */
 
 function playRound (humanChoice, computerChoice) {
+    let minChoice = getHumanChoice.toLowerCase()
 
+    console.log(minChoice());
 }
+

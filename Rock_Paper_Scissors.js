@@ -18,11 +18,11 @@ function getComputerChoice() {
             console.log(n);
 
     if (n > 0 && (n < 3 || n===3)) {
-        console.log("Rock");
+        console.log("rock");
     } else if ((n > 4 || n===4) && (n < 6 || n===6 )) {
-        console.log("Paper");
+        console.log("paper");
     } else {
-        console.log("Scissors");
+        console.log("scissors");
     }
         
 }
@@ -40,9 +40,11 @@ IF valore è Scissors
 */
 
 function getHumanChoice() {
-    let answer= prompt("Rock, Paper or Scissors");
+    let answer= prompt("rock, paper or scissors");
         
-    if (answer == "Rock" || answer == "Paper" || answer == "Scissors") {
+    if (answer == "rock" 
+        || answer == "paper" 
+        || answer == "scissors") {
         console.log(answer)
     } else {
         console.log("Try again");
@@ -50,3 +52,30 @@ function getHumanChoice() {
 }
 
 getHumanChoice();
+
+
+let humanScore = 0;
+let computerScore = 0;
+
+
+/*logica Singolo Round
+creare nuova variabile "a" per trasforare humanChoice in minuscolo;
+IF "a" uguale a rock e computerChoice uguale a Scissors
+    allora messaggio "Hai vinto! Sasso batte forbici"
+    e aumenta di 1 humanScore
+ELSE IF "a" uguale a scissors e computerChoice uguale a Paper
+    allora messaggio "Hai Vinto! Forbici battono carta"
+    e aumenta di 1 humanScore
+ELSE IF "a" uguale a paper e computerChoice uguale a Rock   
+    allora messaggio "Hai vinto! Carta batte Sasso"
+    e aumenta di 1 humanScore
+
+ELSE IF "a" uguale a computerCHoice
+    allora messaggio "Pari! Ancora una volta!"
+
+ELSE messaggio "Hai Perso! "computerChoice" batte "a"
+*/
+
+function playRound (humanChoice, computerChoice) {
+
+}

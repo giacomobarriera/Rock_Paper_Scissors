@@ -23,8 +23,7 @@ function getComputerChoice() {
         console.log("paper");
     } else {
         console.log("scissors");
-    }
-        
+    }     
 }
 
 getComputerChoice();
@@ -57,9 +56,8 @@ getHumanChoice();
 let humanScore = 0;
 let computerScore = 0;
 
-
 /*logica Singolo Round
-creare nuova variabile "a" per trasforare humanChoice in minuscolo;
+
 IF "a" uguale a rock e computerChoice uguale a Scissors
     allora messaggio "Hai vinto! Sasso batte forbici"
     e aumenta di 1 humanScore
@@ -76,9 +74,24 @@ ELSE IF "a" uguale a computerCHoice
 ELSE messaggio "Hai Perso! "computerChoice" batte "a"
 */
 
-function playRound (humanChoice, computerChoice) {
-    let minChoice = getHumanChoice.toLowerCase()
-
-    console.log(minChoice());
+function playRound (/*humanChoice, computerChoice*/) {
+    let humanChoice = getHumanChoice;
+    let computerChoice = getComputerChoice;
+    
+    
+    if (humanChoice == "rock" && computerChoice == "scissors" 
+        || humanChoice == "scissors" && computerChoice == "paper"
+        || humanChoice == "paper" && computerChoice == "rock") {
+            console.log("Hai vinto! " + humanChoice + " batte " + computerChoice)
+    } else if (humanChoice == computerChoice) {
+        console.log("Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice)
+    } else {
+        console.log("Hai perso! " + computerChoice + " batte " + humanChoice)
+    }
 }
+/*
+const humanSelection = getHumanChoice;
+const computerSelection = getComputerChoice;*/
 
+
+playRound(/*humanSelection, computerSelection*/);

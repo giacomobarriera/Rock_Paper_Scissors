@@ -1,8 +1,4 @@
 
-
-console.log("Hello World!");
-
-
 /*SCELTA del COMPUTER
 Chiedere al computer di scegliere un numero a caso;
 Trasformare il numero da decimale in intero
@@ -13,20 +9,18 @@ ELSE IF numero è tra 4 e 6
 ELSE numero è gra 7 e 9 
     allora chiama scissors*/
 
+
 function getComputerChoice() {
     let n= (Math.random() * 10);
-            console.log(n);
-
     if (n > 0 && (n < 3 || n===3)) {
-        console.log("rock");
+        return "rock";
     } else if ((n > 4 || n===4) && (n < 6 || n===6 )) {
-        console.log("paper");
+        return "paper";
     } else {
-        console.log("scissors");
+        return "scissors";
     }     
 }
 
-getComputerChoice();
 
 /*Scelta UTENTE
 Chiedere all'utente di scegliere un valore
@@ -38,20 +32,18 @@ IF valore è Scissors
     allora mostra Scissors
 */
 
+
 function getHumanChoice() {
     let answer= prompt("rock, paper or scissors");
-        
-    if (answer == "rock" 
+        return answer.toLowerCase();
+    /*if (answer == "rock" 
         || answer == "paper" 
         || answer == "scissors") {
         console.log(answer)
     } else {
         console.log(answer.toLowerCase());
-    }
+    }*/
 }
-
-getHumanChoice();
-
 
 let humanScore = 0;
 let computerScore = 0;
@@ -74,24 +66,27 @@ ELSE IF "a" uguale a computerCHoice
 ELSE messaggio "Hai Perso! "computerChoice" batte "a"
 */
 
-function playRound (/*humanChoice, computerChoice*/) {
-    let humanChoice = getHumanChoice;
-    let computerChoice = getComputerChoice;
-    
-    
-    if (humanChoice == "rock" && computerChoice == "scissors" 
-        || humanChoice == "scissors" && computerChoice == "paper"
-        || humanChoice == "paper" && computerChoice == "rock") {
-            console.log("Hai vinto! " + humanChoice + " batte " + computerChoice)
-    } else if (humanChoice == computerChoice) {
-        console.log("Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice)
+function playRound (humanChoice, computerChoice) {
+    if (
+        (humanChoice === "rock" && computerChoice === "scissors")  || 
+        (humanChoice === "scissors" && computerChoice === "paper") ||
+        (humanChoice === "paper" && computerChoice === "rock") 
+    ) {
+        console.log("Hai vinto! " /*+ humanChoice + " batte " + computerChoice*/)
+    } else if (
+        (humanChoice === "rock" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "paper")
+     ) {
+        console.log("Pari! Riprova! " /*+ humanChoice + " è uguale a " + computerChoice*/)
     } else {
-        console.log("Hai perso! " + computerChoice + " batte " + humanChoice)
-    }
+        console.log("Hai perso! " /*+ computerChoice + " batte " + humanChoice*/)
+    } 
 }
-/*
-const humanSelection = getHumanChoice;
-const computerSelection = getComputerChoice;*/
 
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
-playRound(/*humanSelection, computerSelection*/);
+console.log("Computer sceglie:", computerSelection);
+console.log("Utente sceglie:", humanSelection);
+playRound(humanSelection, computerSelection);

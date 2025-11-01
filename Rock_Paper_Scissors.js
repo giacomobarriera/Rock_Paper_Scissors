@@ -37,7 +37,7 @@ function playRound (humanChoice, computerChoice) {
     } else {
         console.log("Hai perso! " + computerChoice + " batte " + humanChoice);
         computerScore++;
-        nGame;
+        nGame++;
     }     
 };
 
@@ -63,6 +63,5 @@ function playGame() {
         console.log("Peccato, hai perso! Riprova!")
     }
 }
-
     
 playGame();

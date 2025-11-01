@@ -9,7 +9,6 @@ ELSE IF numero è tra 4 e 6
 ELSE numero è gra 7 e 9 
     allora chiama scissors*/
 
-
 function getComputerChoice() {
     let n= (Math.random() * 10);
     if (n > 0 && (n < 3 || n===3)) {
@@ -19,8 +18,7 @@ function getComputerChoice() {
     } else {
         return "scissors";
     }     
-}
-
+};
 
 /*Scelta UTENTE
 Chiedere all'utente di scegliere un valore
@@ -32,14 +30,10 @@ IF valore è Scissors
     allora mostra Scissors
 */
 
-
 function getHumanChoice() {
     let answer= prompt("rock, paper or scissors");
         return answer.toLowerCase();
-}
-
-let humanScore = 0;
-let computerScore = 0;
+};
 
 /*logica Singolo Round
 
@@ -59,31 +53,78 @@ ELSE IF "a" uguale a computerCHoice
 ELSE messaggio "Hai Perso! "computerChoice" batte "a"
 */
 
-function playRound (humanChoice, computerChoice) {
-    if (
-        (humanChoice === "rock" && computerChoice === "scissors")  || 
-        (humanChoice === "scissors" && computerChoice === "paper") ||
-        (humanChoice === "paper" && computerChoice === "rock") 
-    ) {
-        console.log("Hai vinto! " + humanChoice + " batte " + computerChoice);
-        return humanScore++;
-    } else if (humanChoice === computerChoice) {
-        console.log("Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice)
-    } else {
-        console.log("Hai perso! " + computerChoice + " batte " + humanChoice);
-        return computerScore++;
-    } 
+    function playRound (humanChoice, computerChoice) {
+              
+        if (
+            (humanChoice === "rock" && computerChoice === "scissors")  || 
+            (humanChoice === "scissors" && computerChoice === "paper") ||
+            (humanChoice === "paper" && computerChoice === "rock") 
+        ) {
+            console.log("Hai vinto! " + humanChoice + " batte " + computerChoice);
+            return humanScore++;
+        } else if (humanChoice === computerChoice) {
+            console.log("Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice)
+        } else {
+            console.log("Hai perso! " + computerChoice + " batte " + humanChoice);
+            return computerScore++;
+        }  
+
+    
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+
+ 
+
+/*logica intero Game
+Impostare variabili punteggio;
+Impostare variabile numero games;
+Contare il numero games;
+Chiedere a utente di scegliere il valore;
+Confrontare con il valore del computer;
+Visualizzare messaggio fine round;
+Registrare lo score;
+Ripetere 5 volte;
+Confrontare score computer e score utente;
+IF score utente maggiore di computer utente
+    allora "Hai vinto!"
+ELSE "Hai perso!"*/
 
 
-console.log("Computer sceglie:", computerSelection);
-console.log("Utente sceglie:", humanSelection);
+    function playGame() {
+        const computerSelection = getComputerChoice();    
+        const humanSelection = getHumanChoice();
 
-playRound(humanSelection, computerSelection);
+        
+        console.log("Computer sceglie:", computerSelection );
+        console.log("Utente sceglie:", humanSelection);
+        
+        playRound(humanSelection, computerSelection);         
 
-console.log("Punteggio Computer:", computerScore);
-console.log("Punteggio Utente:", humanScore);
+        console.log("Punteggio Computer:", computerScore);
+        console.log("Punteggio Utente:", humanScore);
+
+        
+    }
+    
+let humanScore = 0;
+let computerScore = 0;
+    
+playGame();
+
+    
+
+    
+
+
+
+    
+    
+
+    
+
+
+    
+
+
+
 

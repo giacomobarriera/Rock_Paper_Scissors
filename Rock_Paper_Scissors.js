@@ -42,14 +42,7 @@ function playRound (humanChoice, computerChoice) {
 };
 
 /*logica intero Game
-Impostare variabili punteggio;
-Impostare variabile numero games;
-Contare il numero games;
-Chiedere a utente di scegliere il valore;
-Confrontare con il valore del computer;
-Visualizzare messaggio fine round;
-Registrare lo score;
-Ripetere 5 volte;
+
 Confrontare score computer e score utente;
 IF score utente maggiore di computer utente
     allora "Hai vinto!"

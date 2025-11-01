@@ -6,7 +6,7 @@ let computerSelection;
 
 function getComputerChoice() {
     let n= (Math.random() * 10);
-    if (n > 0 && (n < 3 || n===3)) {
+    if (n > 0 && n <= 3) {
         return "rock";
     } else if ((n > 4 || n===4) && (n < 6 || n===6 )) {
         return "paper";

@@ -41,19 +41,11 @@ function playRound (humanChoice, computerChoice) {
     }     
 };
 
-/*logica intero Game
-
-Confrontare score computer e score utente;
-IF score utente maggiore di computer utente
-    allora "Hai vinto!"
-ELSE "Hai perso!"*/
-
-
 function playGame() {
 
     for(let i = 1; i <= 5; i++) {
-        const computerSelection = getComputerChoice();    
-        const humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();    
+        humanSelection = getHumanChoice();
         
         console.log("Numero Game:", nGame);
         console.log("Computer sceglie:", computerSelection );
@@ -63,7 +55,12 @@ function playGame() {
 
         console.log("Punteggio Computer:", computerScore);
         console.log("Punteggio Utente:", humanScore);
+    }
 
+    if (humanScore > computerScore) {
+        console.log("Congratulations! Hai battuto il computer!")
+    } else { 
+        console.log("Peccato, hai perso! Riprova!")
     }
 }
 

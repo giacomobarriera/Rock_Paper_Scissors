@@ -1,7 +1,6 @@
 
 let humanScore = 0;
 let computerScore = 0;
-let nGame = 1;
 let humanSelection;
 let computerSelection;
 
@@ -30,14 +29,11 @@ function playRound (humanChoice, computerChoice) {
     ) {
         console.log("Hai vinto! " + humanChoice + " batte " + computerChoice);
         humanScore++;
-        nGame++;
     } else if (humanChoice === computerChoice) {
         console.log("Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice)
-        nGame++;
     } else {
         console.log("Hai perso! " + computerChoice + " batte " + humanChoice);
         computerScore++;
-        nGame++;
     }     
 };
 
@@ -47,7 +43,7 @@ function playGame() {
         computerSelection = getComputerChoice();    
         humanSelection = getHumanChoice();
         
-        console.log("Numero Game:", nGame);
+        console.log("Numero Game:", i);
         console.log("Computer sceglie:", computerSelection );
         console.log("Utente sceglie:", humanSelection);
         

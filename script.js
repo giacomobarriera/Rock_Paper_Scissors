@@ -62,3 +62,20 @@ function playRound (humanChoice, computerChoice) {
     
 playGame();
 */
+
+
+
+//buttons per funzioni
+var humanChoice = document.querySelector(".container#pc");
+console.log(humanChoice)
+var computerChoice = document.getElementById(".hmn");
+console.log(computerChoice)
+var playR = document.getElementById("playR");
+console.log(playR)
+
+//collegamento eventi ai bottoni
+humanChoice.addEventListener("click", () =>{
+     console.log("clicked");
+     });
+computerChoice.addEventListener("click", getComputerChoice());
+playR.addEventListener("click", playRound());

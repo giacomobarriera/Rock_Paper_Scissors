@@ -66,11 +66,11 @@ playGame();
 
 
 //buttons per funzioni
-var humanChoice = document.querySelector(".container#pc");
+const humanChoice = document.querySelector("#hmn");
 console.log(humanChoice)
-var computerChoice = document.getElementById(".hmn");
+const computerChoice = document.getElementById("pc");
 console.log(computerChoice)
-var playR = document.getElementById("playR");
+const playR = document.getElementById("playR");
 console.log(playR)
 
 //collegamento eventi ai bottoni

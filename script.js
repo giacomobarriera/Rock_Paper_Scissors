@@ -13,6 +13,7 @@ function getComputerChoice() {
     } else {
         return "scissors";
     }     
+    
 };
 
 function getHumanChoice() {
@@ -44,16 +45,14 @@ function playGame() {
     }
  }
     
-
 //elementi dinamici
 const body = document.querySelector("body");
 
 const resultBox = document.createElement("div");
 body.appendChild(resultBox);
 resultBox.style.backgroundColor = "ivory";
+resultBox.style.border = "2px solid green";
 resultBox.textContent = "SCELTE DEL COMPUTER E DELL'UTENTE";
-
-
 
 
 //buttons per funzioni
@@ -61,25 +60,33 @@ const humanChoice = document.querySelector("#hmn");
 const computerChoice = document.getElementById("pc");
 const playR = document.getElementById("playR");
 
-
 //collegamento eventi ai bottoni
+
+
 humanChoice.addEventListener("click", () => {
     humanSelection = getHumanChoice()
     const humanChoice = document.createElement("div")
     resultBox.appendChild(humanChoice);
-    humanChoice.textContent = "Utente sceglie: " + humanSelection;
+    hmnChoice.textContent = "Utente sceglie: " + humanSelection;
 })
 
 computerChoice.addEventListener("click", () => {
     computerSelection = getComputerChoice();
     const computerChoice = document.createElement("div")
     resultBox.appendChild(computerChoice);
-    computerChoice.textContent = "Computer sceglie:" + computerSelection;
+    pcChoice.textContent = "Computer sceglie: " + computerSelection;
 });
+
+//conteggio game
+let nRound = 0;
+const nrRound= document.createElement("div");
+resultBox.appendChild(nrRound);
+nrRound.textContent = "Numero partita: " + nRound;
 
 //punteggi
 const score = document.createElement("div");
 resultBox.appendChild(score);
+score.style.border = "1px solid red";
 
 const hmnScore = document.createElement("div")
 score.appendChild(hmnScore);
@@ -89,6 +96,27 @@ const pcScore = document.createElement("div");
 score.appendChild(pcScore);
 pcScore.textContent = "Computer: " + computerScore;
 
+//scelte giocatori
+const choose = document.createElement("div");
+resultBox.appendChild(choose);
+choose.style.border = "1px solid black";
+
+const hmnChoice = document.createElement("div");
+choose.appendChild(hmnChoice);
+hmnChoice.textContent = "Utente sceglie: ";
+
+const pcChoice = document.createElement("div");
+choose.appendChild(pcChoice);
+pcChoice.textContent = "Computer sceglie: ";
+
+//vincitore
+const roundScore = document.createElement("div")
+resultBox.appendChild(roundScore);
+roundScore.textContent = "GAME: ";
+const subScore = document.createElement("a");
+roundScore.appendChild(subScore);
+
+
 //funzione playRound
 function playRound (humanChoice, computerChoice) {
               
@@ -97,23 +125,23 @@ function playRound (humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "rock") 
     ) {
-        const roundScore = document.createElement("div")
-        resultBox.appendChild(roundScore);
-        roundScore.textContent = "Hai vinto! " + humanChoice + " batte " + computerChoice;
+        subScore.textContent = "UTENTE!!!"
         humanScore++;
         hmnScore.textContent = "Utente: " + humanScore;
+        nRound++;
+        nrRound.textContent = "Numero partita: " + nRound;
 
     } else if (humanChoice === computerChoice) {
-        const roundScore = document.createElement("div")
-        resultBox.appendChild(roundScore);
-        roundScore.textContent = "Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice;
+        subScore.textContent = "PARI...";
+        nRound++;
+        nrRound.textContent = "Numero partita: " + nRound;
+
     } else {
-        const roundScore = document.createElement("div")
-        resultBox.appendChild(roundScore);
-        roundScore.textContent = "Hai perso! " + computerChoice + " batte " + humanChoice;
+        subScore.textContent = "COMPUTER!";
         computerScore++;
         pcScore.textContent = "Computer: " + computerScore;
-
+        nRound++;
+        nrRound.textContent = "Numero partita: " + nRound;
     }     
 };
 

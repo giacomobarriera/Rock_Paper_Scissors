@@ -20,25 +20,6 @@ function getHumanChoice() {
         return answer.toLowerCase();
 };
 
-function playRound (humanChoice, computerChoice) {
-              
-    if (
-        (humanChoice === "rock" && computerChoice === "scissors")  || 
-        (humanChoice === "scissors" && computerChoice === "paper") ||
-        (humanChoice === "paper" && computerChoice === "rock") 
-    ) {
-        console.log("Hai vinto! " + humanChoice + " batte " + computerChoice);
-        humanScore++;
-    } else if (humanChoice === computerChoice) {
-        console.log("Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice)
-    } else {
-        console.log("Hai perso! " + computerChoice + " batte " + humanChoice);
-        computerScore++;
-    }     
-};
-
-
-
 function playGame() {
 
     for(let i = 1; i <= 5; i++) {
@@ -64,29 +45,66 @@ function playGame() {
  }
     
 
+//elementi dinamici
+const body = document.querySelector("body");
+
+const resultBox = document.createElement("div");
+body.appendChild(resultBox);
+resultBox.style.backgroundColor = "ivory";
+resultBox.textContent = "SCELTE DEL COMPUTER E DELL'UTENTE";
 
 
 
 
 //buttons per funzioni
 const humanChoice = document.querySelector("#hmn");
-console.log(humanChoice)
 const computerChoice = document.getElementById("pc");
-console.log(computerChoice)
 const playR = document.getElementById("playR");
-console.log(playR)
 
 
 //collegamento eventi ai bottoni
 humanChoice.addEventListener("click", () => {
     humanSelection = getHumanChoice()
-    console.log("Utente sceglie: ", humanSelection);
+    const humanChoice = document.createElement("div")
+    resultBox.appendChild(humanChoice);
+    humanChoice.textContent = "Utente sceglie: " + humanSelection;
 })
+
 computerChoice.addEventListener("click", () => {
     computerSelection = getComputerChoice();
-    console.log("Computer sceglie: ", computerSelection)
+    const computerChoice = document.createElement("div")
+    resultBox.appendChild(computerChoice);
+    computerChoice.textContent = "Computer sceglie:" + computerSelection;
 });
 
+//funzione playRound
+function playRound (humanChoice, computerChoice) {
+              
+    if (
+        (humanChoice === "rock" && computerChoice === "scissors")  || 
+        (humanChoice === "scissors" && computerChoice === "paper") ||
+        (humanChoice === "paper" && computerChoice === "rock") 
+    ) {
+        const roundScore = document.createElement("div")
+        resultBox.appendChild(roundScore);
+        roundScore.textContent = "Hai vinto! " + humanChoice + " batte " + computerChoice;
+        humanScore++;
+
+    } else if (humanChoice === computerChoice) {
+        const roundScore = document.createElement("div")
+        resultBox.appendChild(roundScore);
+        roundScore.textContent = "Pari! Riprova! " + humanChoice + " è uguale a " + computerChoice;
+    } else {
+        const roundScore = document.createElement("div")
+        resultBox.appendChild(roundScore);
+        roundScore.textContent = "Hai perso! " + computerChoice + " batte " + humanChoice;
+        computerScore++;
+    }     
+};
+
 playR.addEventListener("click", () => {
-    playRound(humanSelection, computerSelection)
+    const roundScore = document.createElement("div");
+    resultBox.appendChild(roundScore);
+    roundScore.textContent = playRound(humanSelection, computerSelection)
 });
+

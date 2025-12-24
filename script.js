@@ -37,11 +37,14 @@ function playRound (humanChoice, computerChoice) {
     }     
 };
 
-/*function playGame() {
+
+
+function playGame() {
 
     for(let i = 1; i <= 5; i++) {
-        computerSelection = getComputerChoice();    
-        humanSelection = getHumanChoice();
+       
+    computerSelection = getComputerChoice();    
+    humanSelection = getHumanChoice();
         
         console.log("Numero Game:", i);
         console.log("Computer sceglie:", computerSelection );
@@ -58,10 +61,10 @@ function playRound (humanChoice, computerChoice) {
     } else { 
         console.log("Peccato, hai perso! Riprova!")
     }
-}
+ }
     
-playGame();
-*/
+
+
 
 
 
@@ -73,9 +76,17 @@ console.log(computerChoice)
 const playR = document.getElementById("playR");
 console.log(playR)
 
+
 //collegamento eventi ai bottoni
-humanChoice.addEventListener("click", () =>{
-     console.log("clicked");
-     });
-computerChoice.addEventListener("click", getComputerChoice());
-playR.addEventListener("click", playRound());
+humanChoice.addEventListener("click", () => {
+    humanSelection = getHumanChoice()
+    console.log("Utente sceglie: ", humanSelection);
+})
+computerChoice.addEventListener("click", () => {
+    computerSelection = getComputerChoice();
+    console.log("Computer sceglie: ", computerSelection)
+});
+
+playR.addEventListener("click", () => {
+    playRound(humanSelection, computerSelection)
+});

@@ -77,6 +77,18 @@ computerChoice.addEventListener("click", () => {
     computerChoice.textContent = "Computer sceglie:" + computerSelection;
 });
 
+//punteggi
+const score = document.createElement("div");
+resultBox.appendChild(score);
+
+const hmnScore = document.createElement("div")
+score.appendChild(hmnScore);
+hmnScore.textContent = "Utente: " + humanScore;
+
+const pcScore = document.createElement("div");
+score.appendChild(pcScore);
+pcScore.textContent = "Computer: " + computerScore;
+
 //funzione playRound
 function playRound (humanChoice, computerChoice) {
               
@@ -89,6 +101,7 @@ function playRound (humanChoice, computerChoice) {
         resultBox.appendChild(roundScore);
         roundScore.textContent = "Hai vinto! " + humanChoice + " batte " + computerChoice;
         humanScore++;
+        hmnScore.textContent = "Utente: " + humanScore;
 
     } else if (humanChoice === computerChoice) {
         const roundScore = document.createElement("div")
@@ -99,6 +112,8 @@ function playRound (humanChoice, computerChoice) {
         resultBox.appendChild(roundScore);
         roundScore.textContent = "Hai perso! " + computerChoice + " batte " + humanChoice;
         computerScore++;
+        pcScore.textContent = "Computer: " + computerScore;
+
     }     
 };
 
@@ -106,5 +121,10 @@ playR.addEventListener("click", () => {
     const roundScore = document.createElement("div");
     resultBox.appendChild(roundScore);
     roundScore.textContent = playRound(humanSelection, computerSelection)
+
+
 });
 
+
+
+//funzione per dichiarazione vincitore

@@ -4,24 +4,70 @@ let computerScore = 0;
 let humanSelection;
 let computerSelection;
 
+//definizione container 
+const container = document.querySelector(".container");
+
+const computerChoiceButton = document.querySelector("#pc");
+
+const humanChoiceButton = document.querySelector("#hmn");
+
+const roundBox = document.querySelector("#playR");
+
 function getComputerChoice() {
+    // box per pulsanti
+    const pcBox = document.createElement("div");
+    container.insertBefore(pcBox, roundBox);
+    pcBox.style.border = "1px solid orange";
+    pcBox.style.display = "flex";
+    pcBox.style.boxSizing = "content-box";
+
+    //scelta scissors computer
+    const pcScissors = document.createElement("div");
+    const pcButtonScissors = document.createElement("button");
+    pcBox.appendChild(pcScissors);
+    pcScissors.appendChild(pcButtonScissors);
+    pcButtonScissors.textContent = "SCISSORS";
+    pcScissors.style.display = "flex";
+   
+    //scelta rock computer
+    const pcRock = document.createElement("div");
+    const pcButtonRock = document.createElement("button");
+    pcBox.appendChild(pcRock);
+    pcRock.appendChild(pcButtonRock);
+    pcButtonRock.textContent = "ROCK";
+    pcRock.style.display = "flex";
+
+    //scelta paper computer
+    const pcPaper = document.createElement("div");
+    const pcButtonPaper = document.createElement("button");
+    pcBox.appendChild(pcPaper);
+    pcPaper.appendChild(pcButtonPaper);
+    pcButtonPaper.textContent = "PAPER";
+    pcPaper.style.display = "flex";
+
+    //funzione
     let n= (Math.random() * 10);
     if (n > 0 && n <= 3) {
+        //colora la scelta
+        pcButtonRock.style.backgroundColor = "orange";
         return "rock";
     } else if ((n > 4 || n===4) && (n < 6 || n===6 )) {
+        //colora la scelta
+        pcButtonPaper.style.backgroundColor = "orange";
         return "paper";
     } else {
+        //colora la scelta
+        pcButtonScissors.style.backgroundColor = "orange";
         return "scissors";
     }     
     
 };
 
+
+
 function getHumanChoice() {
     /*let answer= prompt("rock, paper or scissors");
         return answer.toLowerCase();*/
-
-    const container = document.querySelector(".container");
-    const computerChoiceButton = document.querySelector("#pc");
 
     const humanBox = document.createElement("div");
     container.insertBefore(humanBox, computerChoiceButton);

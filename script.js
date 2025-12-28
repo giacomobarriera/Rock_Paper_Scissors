@@ -66,6 +66,10 @@ function getComputerChoice() {
 
 
 function getHumanChoice() {
+
+    // collegare risposta al click del bottone
+
+    
     /*let answer= prompt("rock, paper or scissors");
         return answer.toLowerCase();*/
 
@@ -86,6 +90,10 @@ function getHumanChoice() {
     scissors.textContent = "SCISSORS";
     divScissors.style.display = "flex";
 
+    //aggiunta click
+    scissors.addEventListener("click", () => {
+        scissors.style.backgroundColor = "orange"
+    });
     
     const divRock = document.createElement("div");
     const rock = document.createElement("button");
@@ -94,12 +102,23 @@ function getHumanChoice() {
     rock.textContent = "ROCK";
     divRock.style.display = "flex";
 
+    //aggiunta click
+    rock.addEventListener("click", () => {
+        rock.style.backgroundColor = "orange"
+    });
+
     const divPaper = document.createElement("div");
     const paper = document.createElement("button")
     humanBox.appendChild(divPaper);
     divPaper.appendChild(paper);
     paper.textContent = "PAPER";
     divPaper.style.display = "flex";
+
+    //aggiunta click
+    paper.addEventListener("click", () => {
+        paper.style.backgroundColor = "orange"
+    });
+
 };
 
 function playGame() {

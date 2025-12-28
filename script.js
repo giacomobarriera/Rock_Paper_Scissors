@@ -17,8 +17,43 @@ function getComputerChoice() {
 };
 
 function getHumanChoice() {
-    let answer= prompt("rock, paper or scissors");
-        return answer.toLowerCase();
+    /*let answer= prompt("rock, paper or scissors");
+        return answer.toLowerCase();*/
+
+    const container = document.querySelector(".container");
+    const computerChoiceButton = document.querySelector("#pc");
+
+    const humanBox = document.createElement("div");
+    container.insertBefore(humanBox, computerChoiceButton);
+    humanBox.style.border = "1px solid yellow";
+    humanBox.style.display = "flex";
+    
+    //posizionare al centro i tre pulsanti creati e procedere con le altri funzioni.
+
+    //cercare di comprendere misura humanBox
+    humanBox.style.boxSizing = "content-box";
+
+    const divScissors = document.createElement("div");
+    const scissors = document.createElement("button");
+    humanBox.appendChild(divScissors);
+    divScissors.appendChild(scissors);
+    scissors.textContent = "SCISSORS";
+    divScissors.style.display = "flex";
+
+    
+    const divRock = document.createElement("div");
+    const rock = document.createElement("button");
+    humanBox.appendChild(divRock);
+    divRock.appendChild(rock);
+    rock.textContent = "ROCK";
+    divRock.style.display = "flex";
+
+    const divPaper = document.createElement("div");
+    const paper = document.createElement("button")
+    humanBox.appendChild(divPaper);
+    divPaper.appendChild(paper);
+    paper.textContent = "PAPER";
+    divPaper.style.display = "flex";
 };
 
 function playGame() {

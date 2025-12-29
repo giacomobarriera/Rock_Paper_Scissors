@@ -105,39 +105,53 @@ function getHumanChoice() {
 
     const divScissors = document.createElement("div");
     const scissors = document.createElement("button");
+    scissors.classList.add("btn-scelta");//utile per click
     humanBox.appendChild(divScissors);
     divScissors.appendChild(scissors);
     scissors.textContent = "SCISSORS";
     divScissors.style.display = "flex";
 
-    //aggiunta click
-    scissors.addEventListener("click", () => {
-        scissors.style.backgroundColor = "orange"
-    });
-    
     const divRock = document.createElement("div");
     const rock = document.createElement("button");
+    rock.classList.add("btn-scelta"); // utile per click
     humanBox.appendChild(divRock);
     divRock.appendChild(rock);
     rock.textContent = "ROCK";
     divRock.style.display = "flex";
 
-    //aggiunta click
-    rock.addEventListener("click", () => {
-        rock.style.backgroundColor = "orange"
-    });
-
     const divPaper = document.createElement("div");
-    const paper = document.createElement("button")
+    const paper = document.createElement("button");
+    paper.classList.add("btn-scelta");// utile per click
     humanBox.appendChild(divPaper);
     divPaper.appendChild(paper);
     paper.textContent = "PAPER";
     divPaper.style.display = "flex";
 
-    //aggiunta click
+    //funzione per buttons btn-scelta
+    document.querySelectorAll(".btn-scelta").forEach(button => {
+        button.addEventListener("click", function() {
+            //rimuovere colorazione
+           document.querySelectorAll(".btn-scelta").forEach(btn => {
+            btn.style.backgroundColor = "";
+            btn.style.color = "";
+           });
+           //colorare pulsante cliccato
+           this.style.backgroundColor = "orange";
+        });
+    })
+
+ /*   //aggiunta click per colorare opzione
+    scissors.addEventListener("click", () => {
+        scissors.style.backgroundColor = "orange"
+    });
+    
+    rock.addEventListener("click", () => {
+        rock.style.backgroundColor = "orange"
+    });
+    
     paper.addEventListener("click", () => {
         paper.style.backgroundColor = "orange"
-    });
+    });*/
 
 };
 

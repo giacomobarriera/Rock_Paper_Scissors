@@ -13,6 +13,7 @@ const humanChoiceButton = document.querySelector("#hmn");
 
 const roundBox = document.querySelector("#playR");
 
+
 function getComputerChoice() {
 
 
@@ -130,42 +131,15 @@ function getHumanChoice() {
            //colorare pulsante cliccato
            this.style.backgroundColor = "orange";
            
-           return hmnChoice.textContent = "Utente sceglie: " + button.textContent.toLowerCase();
+         humanSelection = button.textContent.toLowerCase();
+         
+         hmnChoice.textContent = "La tua scelta: " + humanSelection;
+         console.log("Hai scelto:", humanSelection);
         });
     })
-
-    humanChoice
-
-    // collegare risposta al click del bottone
-
-    
-    /*let answer= prompt("rock, paper or scissors");
-        return answer.toLowerCase();*/
 };
 
-function playGame() {
 
-    for(let i = 1; i <= 5; i++) {
-       
-    computerSelection = getComputerChoice();    
-    humanSelection = getHumanChoice();
-        
-        console.log("Numero Game:", i);
-        console.log("Computer sceglie:", computerSelection );
-        console.log("Utente sceglie:", humanSelection);
-        
-        playRound(humanSelection, computerSelection);         
-
-        console.log("Punteggio Computer:", computerScore);
-        console.log("Punteggio Utente:", humanScore);
-    }
-
-    if (humanScore > computerScore) {
-        console.log("Congratulations! Hai battuto il computer!")
-    } else { 
-        console.log("Peccato, hai perso! Riprova!")
-    }
- }
     
 //elementi dinamici
 const body = document.querySelector("body");
@@ -186,11 +160,14 @@ const playR = document.getElementById("playR");
 
 
 humanChoice.addEventListener("click", () => {
-    humanSelection = getHumanChoice()
+    getHumanChoice();
+    
+    /*humanSelection = getHumanChoice()
+    console.log(humanSelection)
     const humanChoice = document.createElement("div")
     resultBox.appendChild(humanChoice);
-    //hmnChoice.textContent = "Utente sceglie: " + humanSelection;
-})
+    hmnChoice.textContent = "Utente sceglie: " + humanSelection;
+*/})
 
 computerChoice.addEventListener("click", () => {
     computerSelection = getComputerChoice();
@@ -268,15 +245,32 @@ function playRound (humanChoice, computerChoice) {
 };
 // da sistemare logica del gioco
 playR.addEventListener("click", () => {
-    const roundScore = document.createElement("div");
-    resultBox.appendChild(roundScore);
-   // humanSelection = getHumanChoice();
-   // computerSelection = getComputerChoice();
-    roundScore.textContent = playRound(humanSelection, computerSelection)
+    if (!humanSelection) {
+        alert("Prima scegli la tua mossa!");
+        return;
+    }
 
+    if (!computerSelection) {
+        alert("Prima fai scegliere al computer!");
+        return;
+    }
+
+    playRound(humanSelection, computerSelection);
+
+    
+   
+    /*const roundScore = document.createElement("div");
+    resultBox.appendChild(roundScore);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    roundScore.textContent = playRound(humanSelection, computerSelection)
+*/
 
 });
 
 
 
 //funzione per dichiarazione vincitore
+
+
+//hmnChoice.textContent = "Utente sceglie: " + 

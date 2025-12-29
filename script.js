@@ -14,8 +14,19 @@ const humanChoiceButton = document.querySelector("#hmn");
 const roundBox = document.querySelector("#playR");
 
 function getComputerChoice() {
+
+
+    //opzione per agg o togliere alternative
+    const existingPcBox = document.querySelector(".pc-box");
+
+    if (existingPcBox) {
+        existingPcBox.remove();
+        return null;
+    }
+
     // box per pulsanti
     const pcBox = document.createElement("div");
+    pcBox.classList.add("pc-box");
     container.insertBefore(pcBox, roundBox);
     pcBox.style.border = "1px solid orange";
     pcBox.style.display = "flex";
@@ -73,7 +84,16 @@ function getHumanChoice() {
     /*let answer= prompt("rock, paper or scissors");
         return answer.toLowerCase();*/
 
+    //opzione per aggiungere e rimuovere alternative
+    const existingHumanBox = document.querySelector(".human-box");
+
+    if (existingHumanBox) {
+        existingHumanBox.remove();
+        return null;
+    }
+
     const humanBox = document.createElement("div");
+    humanBox.classList.add("human-box"); //aggiunta classe per agg e rimuovere
     container.insertBefore(humanBox, computerChoiceButton);
     humanBox.style.border = "1px solid yellow";
     humanBox.style.display = "flex";

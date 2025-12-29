@@ -74,15 +74,7 @@ function getComputerChoice() {
     
 };
 
-
-
 function getHumanChoice() {
-
-    // collegare risposta al click del bottone
-
-    
-    /*let answer= prompt("rock, paper or scissors");
-        return answer.toLowerCase();*/
 
     //opzione per aggiungere e rimuovere alternative
     const existingHumanBox = document.querySelector(".human-box");
@@ -137,22 +129,18 @@ function getHumanChoice() {
            });
            //colorare pulsante cliccato
            this.style.backgroundColor = "orange";
+           
+           return hmnChoice.textContent = "Utente sceglie: " + button.textContent.toLowerCase();
         });
     })
 
- /*   //aggiunta click per colorare opzione
-    scissors.addEventListener("click", () => {
-        scissors.style.backgroundColor = "orange"
-    });
-    
-    rock.addEventListener("click", () => {
-        rock.style.backgroundColor = "orange"
-    });
-    
-    paper.addEventListener("click", () => {
-        paper.style.backgroundColor = "orange"
-    });*/
+    humanChoice
 
+    // collegare risposta al click del bottone
+
+    
+    /*let answer= prompt("rock, paper or scissors");
+        return answer.toLowerCase();*/
 };
 
 function playGame() {
@@ -201,7 +189,7 @@ humanChoice.addEventListener("click", () => {
     humanSelection = getHumanChoice()
     const humanChoice = document.createElement("div")
     resultBox.appendChild(humanChoice);
-    hmnChoice.textContent = "Utente sceglie: " + humanSelection;
+    //hmnChoice.textContent = "Utente sceglie: " + humanSelection;
 })
 
 computerChoice.addEventListener("click", () => {
@@ -278,10 +266,12 @@ function playRound (humanChoice, computerChoice) {
         nrRound.textContent = "Numero partita: " + nRound;
     }     
 };
-
+// da sistemare logica del gioco
 playR.addEventListener("click", () => {
     const roundScore = document.createElement("div");
     resultBox.appendChild(roundScore);
+   // humanSelection = getHumanChoice();
+   // computerSelection = getComputerChoice();
     roundScore.textContent = playRound(humanSelection, computerSelection)
 
 

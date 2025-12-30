@@ -257,6 +257,18 @@ playR.addEventListener("click", () => {
 
     playRound(humanSelection, computerSelection);
 
+    const existingHumanBox = document.querySelector(".human-box");
+
+    if (existingHumanBox) {
+        existingHumanBox.remove();
+    }
+
+    const existingPcBox = document.querySelector(".pc-box");
+
+    if (existingPcBox) {
+        existingPcBox.remove();
+    }
+
     
    
     /*const roundScore = document.createElement("div");

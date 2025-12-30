@@ -248,35 +248,28 @@ playR.addEventListener("click", () => {
     if (!humanSelection) {
         alert("Prima scegli la tua mossa!");
         return;
-    }
-
-    if (!computerSelection) {
+    } else if (!computerSelection) {
         alert("Prima fai scegliere al computer!");
         return;
+    }
+    
+    const existingHumanBox = document.querySelector(".human-box");
+    const existingPcBox = document.querySelector(".pc-box");
+
+    if (existingHumanBox) {
+        existingHumanBox.remove();
+    
+    }
+    if (existingPcBox) {
+        existingPcBox.remove();
+    
     }
 
     playRound(humanSelection, computerSelection);
 
-    const existingHumanBox = document.querySelector(".human-box");
-
-    if (existingHumanBox) {
-        existingHumanBox.remove();
-    }
-
-    const existingPcBox = document.querySelector(".pc-box");
-
-    if (existingPcBox) {
-        existingPcBox.remove();
-    }
-
     
-   
-    /*const roundScore = document.createElement("div");
-    resultBox.appendChild(roundScore);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    roundScore.textContent = playRound(humanSelection, computerSelection)
-*/
+    humanSelection = null;
+    computerSelection = null;
 
 });
 

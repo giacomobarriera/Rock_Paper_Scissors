@@ -150,24 +150,14 @@ resultBox.style.backgroundColor = "ivory";
 resultBox.style.border = "2px solid green";
 resultBox.textContent = "SCELTE DEL COMPUTER E DELL'UTENTE";
 
-
 //buttons per funzioni
 const humanChoice = document.querySelector("#hmn");
 const computerChoice = document.getElementById("pc");
 const playR = document.getElementById("playR");
 
-//collegamento eventi ai bottoni
-
-
 humanChoice.addEventListener("click", () => {
     getHumanChoice();
-    
-    /*humanSelection = getHumanChoice()
-    console.log(humanSelection)
-    const humanChoice = document.createElement("div")
-    resultBox.appendChild(humanChoice);
-    hmnChoice.textContent = "Utente sceglie: " + humanSelection;
-*/})
+    })
 
 computerChoice.addEventListener("click", () => {
     computerSelection = getComputerChoice();
@@ -217,8 +207,9 @@ roundScore.appendChild(subScore);
 
 
 //funzione playRound
+//inserire qui logica funzione per vincitore
 function playRound (humanChoice, computerChoice) {
-              
+   
     if (
         (humanChoice === "rock" && computerChoice === "scissors")  || 
         (humanChoice === "scissors" && computerChoice === "paper") ||
@@ -243,7 +234,7 @@ function playRound (humanChoice, computerChoice) {
         nrRound.textContent = "Numero partita: " + nRound;
     }     
 };
-// da sistemare logica del gioco
+
 playR.addEventListener("click", () => {
     if (!humanSelection) {
         alert("Prima scegli la tua mossa!");
@@ -267,7 +258,7 @@ playR.addEventListener("click", () => {
 
     playRound(humanSelection, computerSelection);
 
-    
+   //resettare le scelte  
     humanSelection = null;
     computerSelection = null;
 

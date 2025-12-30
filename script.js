@@ -209,29 +209,49 @@ roundScore.appendChild(subScore);
 //funzione playRound
 //inserire qui logica funzione per vincitore
 function playRound (humanChoice, computerChoice) {
-   
+    
     if (
         (humanChoice === "rock" && computerChoice === "scissors")  || 
         (humanChoice === "scissors" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "rock") 
-    ) {
+    ) { 
+        if (humanScore < 4) {
         subScore.textContent = "UTENTE!!!"
         humanScore++;
         hmnScore.textContent = "Utente: " + humanScore;
         nRound++;
         nrRound.textContent = "Numero partita: " + nRound;
-
+        } else {
+        alert("Bravo! Hai vinto!");
+        humanScore = 0;
+        hmnScore.textContent = "Utente: " + humanScore;
+        nRound = 0;
+        nrRound.textContent = "Numero partita: " + nRound;
+        computerScore = 0;
+        pcScore.textContent = "Computer: " + computerScore;
+        subScore.textContent = "";
+        }
     } else if (humanChoice === computerChoice) {
         subScore.textContent = "PARI...";
         nRound++;
         nrRound.textContent = "Numero partita: " + nRound;
-
     } else {
+        if (computerScore < 4) {
         subScore.textContent = "COMPUTER!";
         computerScore++;
         pcScore.textContent = "Computer: " + computerScore;
         nRound++;
         nrRound.textContent = "Numero partita: " + nRound;
+        } else {
+            alert("Peccato! Hai Perso!");
+            humanScore = 0;
+        hmnScore.textContent = "Utente: " + humanScore;
+        nRound = 0;
+        nrRound.textContent = "Numero partita: " + nRound;
+        computerScore = 0;
+        pcScore.textContent = "Computer: " + computerScore;
+        subScore.textContent = "";
+        }
     }     
 };
 

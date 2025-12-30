@@ -27,7 +27,7 @@ function getComputerChoice() {
 
     // box per pulsanti
     const pcBox = document.createElement("div");
-    pcBox.classList.add("pc-box");
+    pcBox.classList.add("card", "pc-box");
     container.insertBefore(pcBox, roundBox);
     pcBox.style.border = "1px solid orange";
     pcBox.style.display = "flex";
@@ -86,7 +86,7 @@ function getHumanChoice() {
     }
 
     const humanBox = document.createElement("div");
-    humanBox.classList.add("human-box"); //aggiunta classe per agg e rimuovere
+    humanBox.classList.add("card", "human-box"); //aggiunta classe per agg e rimuovere
     container.insertBefore(humanBox, computerChoiceButton);
     humanBox.style.border = "1px solid yellow";
     humanBox.style.display = "flex";
@@ -134,7 +134,6 @@ function getHumanChoice() {
          humanSelection = button.textContent.toLowerCase();
          
          hmnChoice.textContent = "La tua scelta: " + humanSelection;
-         console.log("Hai scelto:", humanSelection);
         });
     })
 };
@@ -146,9 +145,10 @@ const body = document.querySelector("body");
 
 const resultBox = document.createElement("div");
 body.appendChild(resultBox);
-resultBox.style.backgroundColor = "ivory";
-resultBox.style.border = "2px solid green";
-resultBox.textContent = "SCELTE DEL COMPUTER E DELL'UTENTE";
+resultBox.classList.add("card");
+//resultBox.style.backgroundColor = "ivory";
+//resultBox.style.border = "2px solid green";
+//resultBox.textContent = "SCELTE DEL COMPUTER E DELL'UTENTE";
 
 //buttons per funzioni
 const humanChoice = document.querySelector("#hmn");
@@ -175,7 +175,8 @@ nrRound.textContent = "Numero partita: " + nRound;
 //punteggi
 const score = document.createElement("div");
 resultBox.appendChild(score);
-score.style.border = "1px solid red";
+score.classList.add("card");
+//score.style.border = "1px solid red";
 
 const hmnScore = document.createElement("div")
 score.appendChild(hmnScore);
@@ -188,7 +189,8 @@ pcScore.textContent = "Computer: " + computerScore;
 //scelte giocatori
 const choose = document.createElement("div");
 resultBox.appendChild(choose);
-choose.style.border = "1px solid black";
+choose.classList.add("card");
+//choose.style.border = "1px solid black";
 
 const hmnChoice = document.createElement("div");
 choose.appendChild(hmnChoice);
@@ -201,6 +203,7 @@ pcChoice.textContent = "Computer sceglie: ";
 //vincitore
 const roundScore = document.createElement("div")
 resultBox.appendChild(roundScore);
+roundScore.classList.add("card");
 roundScore.textContent = "GAME: ";
 const subScore = document.createElement("a");
 roundScore.appendChild(subScore);
@@ -252,7 +255,7 @@ function playRound (humanChoice, computerChoice) {
         pcScore.textContent = "Computer: " + computerScore;
         subScore.textContent = "";
         }
-    }     
+    }   
 };
 
 playR.addEventListener("click", () => {
@@ -283,10 +286,3 @@ playR.addEventListener("click", () => {
     computerSelection = null;
 
 });
-
-
-
-//funzione per dichiarazione vincitore
-
-
-//hmnChoice.textContent = "Utente sceglie: " + 

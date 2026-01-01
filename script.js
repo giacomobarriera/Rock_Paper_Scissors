@@ -29,9 +29,7 @@ function getComputerChoice() {
     const pcBox = document.createElement("div");
     pcBox.classList.add("card", "pc-box");
     container.insertBefore(pcBox, roundBox);
-    pcBox.style.border = "1px solid orange";
     pcBox.style.display = "flex";
-    pcBox.style.boxSizing = "content-box";
 
     //scelta scissors computer
     const pcScissors = document.createElement("div");
@@ -60,16 +58,16 @@ function getComputerChoice() {
     //funzione
     let n= (Math.random() * 10);
     if (n > 0 && n <= 3) {
-        //colora la scelta
-        pcButtonRock.style.backgroundColor = "orange";
+        //aggiungi classe selected
+        pcButtonRock.classList.add("selected");
         return "rock";
     } else if ((n > 4 || n===4) && (n < 6 || n===6 )) {
-        //colora la scelta
-        pcButtonPaper.style.backgroundColor = "orange";
+        //aggiungi classe selected
+        pcButtonPaper.classList.add("selected");
         return "paper";
     } else {
-        //colora la scelta
-        pcButtonScissors.style.backgroundColor = "orange";
+        //aggiungi classe selected
+       pcButtonScissors.classList.add("selected");
         return "scissors";
     }     
     
@@ -88,13 +86,9 @@ function getHumanChoice() {
     const humanBox = document.createElement("div");
     humanBox.classList.add("card", "human-box"); //aggiunta classe per agg e rimuovere
     container.insertBefore(humanBox, computerChoiceButton);
-    humanBox.style.border = "1px solid yellow";
     humanBox.style.display = "flex";
     
     //posizionare al centro i tre pulsanti creati e procedere con le altri funzioni.
-
-    //cercare di comprendere misura humanBox
-    humanBox.style.boxSizing = "content-box";
 
     const divScissors = document.createElement("div");
     const scissors = document.createElement("button");
@@ -125,11 +119,10 @@ function getHumanChoice() {
         button.addEventListener("click", function() {
             //rimuovere colorazione
            document.querySelectorAll(".btn-scelta").forEach(btn => {
-            btn.style.backgroundColor = "";
-            btn.style.color = "";
+            btn.classList.remove("selected");
            });
            //colorare pulsante cliccato
-           this.style.backgroundColor = "orange";
+           this.classList.add("selected");
            
          humanSelection = button.textContent.toLowerCase();
          
@@ -146,9 +139,6 @@ const body = document.querySelector("body");
 const resultBox = document.createElement("div");
 body.appendChild(resultBox);
 resultBox.classList.add("card");
-//resultBox.style.backgroundColor = "ivory";
-//resultBox.style.border = "2px solid green";
-//resultBox.textContent = "SCELTE DEL COMPUTER E DELL'UTENTE";
 
 //buttons per funzioni
 const humanChoice = document.querySelector("#hmn");
@@ -170,13 +160,13 @@ computerChoice.addEventListener("click", () => {
 let nRound = 0;
 const nrRound= document.createElement("div");
 resultBox.appendChild(nrRound);
+nrRound.classList.add("card")
 nrRound.textContent = "Numero partita: " + nRound;
 
 //punteggi
 const score = document.createElement("div");
 resultBox.appendChild(score);
 score.classList.add("card");
-//score.style.border = "1px solid red";
 
 const hmnScore = document.createElement("div")
 score.appendChild(hmnScore);
@@ -190,7 +180,7 @@ pcScore.textContent = "Computer: " + computerScore;
 const choose = document.createElement("div");
 resultBox.appendChild(choose);
 choose.classList.add("card");
-//choose.style.border = "1px solid black";
+
 
 const hmnChoice = document.createElement("div");
 choose.appendChild(hmnChoice);
@@ -210,7 +200,6 @@ roundScore.appendChild(subScore);
 
 
 //funzione playRound
-//inserire qui logica funzione per vincitore
 function playRound (humanChoice, computerChoice) {
     
     if (

@@ -156,47 +156,56 @@ computerChoice.addEventListener("click", () => {
     pcChoice.textContent = "Computer sceglie: " + computerSelection;
 });
 
+const round = document.createElement("div");
+resultBox.appendChild(round)
+round.classList.add("card", "inBox");
+
 //conteggio game
 let nRound = 0;
 const nrRound= document.createElement("div");
-resultBox.appendChild(nrRound);
+round.appendChild(nrRound);
 nrRound.classList.add("card")
-nrRound.textContent = "Numero partita: " + nRound;
+nrRound.textContent = "N° partita: " + nRound;
+
+//vincitore
+const roundScore = document.createElement("div")
+round.appendChild(roundScore);
+roundScore.classList.add("card");
+roundScore.textContent = "GAME: ";
+const subScore = document.createElement("a");
+roundScore.appendChild(subScore);
 
 //punteggi
 const score = document.createElement("div");
 resultBox.appendChild(score);
-score.classList.add("card");
+score.classList.add("card", "inBox");
 
 const hmnScore = document.createElement("div")
 score.appendChild(hmnScore);
+hmnScore.classList.add("card");
 hmnScore.textContent = "Utente: " + humanScore;
 
 const pcScore = document.createElement("div");
 score.appendChild(pcScore);
+pcScore.classList.add("card");
 pcScore.textContent = "Computer: " + computerScore;
 
 //scelte giocatori
 const choose = document.createElement("div");
 resultBox.appendChild(choose);
-choose.classList.add("card");
-
+choose.classList.add("card", "inBox");
 
 const hmnChoice = document.createElement("div");
 choose.appendChild(hmnChoice);
+hmnChoice.classList.add("card");
 hmnChoice.textContent = "Utente sceglie: ";
 
 const pcChoice = document.createElement("div");
 choose.appendChild(pcChoice);
+pcChoice.classList.add("card");
 pcChoice.textContent = "Computer sceglie: ";
 
-//vincitore
-const roundScore = document.createElement("div")
-resultBox.appendChild(roundScore);
-roundScore.classList.add("card");
-roundScore.textContent = "GAME: ";
-const subScore = document.createElement("a");
-roundScore.appendChild(subScore);
+
 
 
 //funzione playRound

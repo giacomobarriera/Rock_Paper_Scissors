@@ -138,7 +138,7 @@ const body = document.querySelector("body");
 
 const resultBox = document.createElement("div");
 body.appendChild(resultBox);
-resultBox.classList.add("card");
+resultBox.classList.add("card", "resultBox");
 
 //buttons per funzioni
 const humanChoice = document.querySelector("#hmn");
@@ -158,19 +158,19 @@ computerChoice.addEventListener("click", () => {
 
 const round = document.createElement("div");
 resultBox.appendChild(round)
-round.classList.add("card", "inBox");
+round.classList.add("card", "outBox");
 
 //conteggio game
 let nRound = 0;
 const nrRound= document.createElement("div");
 round.appendChild(nrRound);
-nrRound.classList.add("card")
+nrRound.classList.add("card", "inBox")
 nrRound.textContent = "N° partita: " + nRound;
 
 //vincitore
 const roundScore = document.createElement("div")
 round.appendChild(roundScore);
-roundScore.classList.add("card");
+roundScore.classList.add("card", "inBox");
 roundScore.textContent = "GAME: ";
 const subScore = document.createElement("a");
 roundScore.appendChild(subScore);
@@ -178,31 +178,31 @@ roundScore.appendChild(subScore);
 //punteggi
 const score = document.createElement("div");
 resultBox.appendChild(score);
-score.classList.add("card", "inBox");
+score.classList.add("card", "outBox");
 
 const hmnScore = document.createElement("div")
 score.appendChild(hmnScore);
-hmnScore.classList.add("card");
+hmnScore.classList.add("card", "inBox");
 hmnScore.textContent = "Utente: " + humanScore;
 
 const pcScore = document.createElement("div");
 score.appendChild(pcScore);
-pcScore.classList.add("card");
+pcScore.classList.add("card", "inBox");
 pcScore.textContent = "Computer: " + computerScore;
 
 //scelte giocatori
 const choose = document.createElement("div");
 resultBox.appendChild(choose);
-choose.classList.add("card", "inBox");
+choose.classList.add("card", "outBox");
 
 const hmnChoice = document.createElement("div");
 choose.appendChild(hmnChoice);
-hmnChoice.classList.add("card");
+hmnChoice.classList.add("card", "inBox");
 hmnChoice.textContent = "Utente sceglie: ";
 
 const pcChoice = document.createElement("div");
 choose.appendChild(pcChoice);
-pcChoice.classList.add("card");
+pcChoice.classList.add("card", "inBox");
 pcChoice.textContent = "Computer sceglie: ";
 
 
